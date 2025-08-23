@@ -4,6 +4,7 @@
       v-for="route in routes"
       :key="route.name"
       :to="route.path"
+      class="router-link"
     >
       {{ route.name }}
   </router-link>
@@ -17,17 +18,10 @@ import { routes } from '../router';
 </script>
 
 <style scoped>
+  @import './GalleryNav.scss';
+
   nav {
     display: flex;
     gap: 1rem;
-  }
-
-  router-link {
-    text-decoration: none;
-    color: #646cff;
-  }
-
-  router-link:hover {
-    color: #535bf2;
   }
 </style>
