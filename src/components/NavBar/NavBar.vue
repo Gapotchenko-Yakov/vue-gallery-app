@@ -12,13 +12,13 @@
 </template>
 
 <script setup lang="ts">
-import { routes } from '../router';
+import { routes } from '../../router';
 
 
 </script>
 
 <style scoped>
-  @import './GalleryNav.scss';
+  @import './NavBar.scss';
 
   nav {
     display: flex;

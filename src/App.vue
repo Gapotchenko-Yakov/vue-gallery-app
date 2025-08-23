@@ -1,12 +1,12 @@
 <template>
   <div>
-    <gallery-nav />
+    <nav-bar />
     <router-view />
   </div>
 </template>
 
 <script setup lang="ts">
-import GalleryNav from './components/GalleryNav.vue';
+import NavBar from './components/NavBar/NavBar.vue';
 </script>
 
 <style scoped>
