@@ -18,9 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import type { InputHTMLAttributes } from 'vue';
-
-interface InputProps  extends InputHTMLAttributes {
+interface InputProps  {
   modelValue: string;
   placeholder?: string;
   disabled?: boolean;

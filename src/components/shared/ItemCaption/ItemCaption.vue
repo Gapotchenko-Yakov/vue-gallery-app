@@ -20,9 +20,7 @@
 </template>
 
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue';
-
-  interface CaptionProps extends HTMLAttributes {
+  interface CaptionProps {
     items: {
         name: string,
         icon: string // TODO: icon props

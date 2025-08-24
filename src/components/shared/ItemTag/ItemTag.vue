@@ -10,9 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue';
-
-    interface ItemTagProps extends HTMLAttributes {
+    interface ItemTagProps {
         label: string,
         variant?: '',
         checked: boolean,

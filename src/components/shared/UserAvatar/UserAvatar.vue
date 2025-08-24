@@ -5,9 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue';
-
-interface AvatarProps extends HTMLAttributes {
+interface AvatarProps {
   src: string;
   alt?: string;
   size?: number;

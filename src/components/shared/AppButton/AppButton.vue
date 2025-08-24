@@ -11,18 +11,19 @@
 <script setup lang="ts">
 import { 
     defineProps, 
-    type ButtonHTMLAttributes 
 } from 'vue';
 
-interface ButtonProps extends ButtonHTMLAttributes {
+interface ButtonProps {
   text: string;                
   variant: 'primary' | 'secondary';
-  disabled?: boolean; 
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const {
     text,
     disabled,
+    type = 'button',
 } = defineProps<ButtonProps>();
 
 const handleClick = (e: MouseEvent) => {
