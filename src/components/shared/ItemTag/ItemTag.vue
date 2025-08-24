@@ -1,7 +1,7 @@
 <template>
     <span>
     <span>
-    {{ label }}
+    {{ text }}
   </span>
   <button v-if="interactive">
     {{ checked ? '➕' : '✔' }}
@@ -11,14 +11,14 @@
 
 <script setup lang="ts">
     interface ItemTagProps {
-        label: string,
+        text: string,
         variant?: '',
-        checked: boolean,
-        interactive: boolean,
+        checked?: boolean,
+        interactive?: boolean,
     }
 
     const {
-        label, checked, interactive
+        text, checked, interactive = false
     } = defineProps<ItemTagProps>();
 </script>
 
