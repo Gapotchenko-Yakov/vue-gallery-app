@@ -1,0 +1,28 @@
+<template>
+  <div class="bg-white text-black h-100">
+    <search-panel
+      title="Блог"
+      :filters="tags"
+    />
+    <!-- gallery grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+      <gallery-card 
+        v-for="card in galleryData"
+        :key="card.id"
+        :data="card"
+      />
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { SearchPanel } from '@/components';
+import { GalleryCard } from '@/components'
+import { galleryData } from '@/const/posts';
+import { tags } from '@/const/posts';
+
+</script>
+
+<style scoped>
+
+</style>

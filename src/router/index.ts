@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomePage from "../views/HomePage.vue";
-import GalleryPage from "../views/GalleryPage.vue";
+import MainPage from "../views/MainPage.vue";
+import BlogPage from "../views/BlogPage.vue";
 
 export const routes = [
-    { path: '/', name: 'Home', component: HomePage },
-    { path: '/gallery', name: 'Gallery', component: GalleryPage },
+    { path: '/', name: 'Главная', component: MainPage },
+    { path: '/blog', name: 'Блог', component: BlogPage },
 ]
 
 const router = createRouter({

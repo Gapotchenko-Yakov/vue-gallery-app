@@ -1,12 +1,12 @@
 <template>
-  <div>
-    <nav-bar />
+  <div class="bg-black text-white h-100">
+    <app-header />
     <router-view />
   </div>
 </template>
 
 <script setup lang="ts">
-import NavBar from './components/NavBar/NavBar.vue';
+import AppHeader from './components/AppHeader/AppHeader.vue';
 </script>
 
 <style scoped>
