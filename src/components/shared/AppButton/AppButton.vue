@@ -4,7 +4,7 @@
     @click="handleClick"
     :type="type"
   >
-    {{ text }}
+    <slot />
   </button>
 </template>
 
@@ -14,14 +14,14 @@ import {
 } from 'vue';
 
 interface ButtonProps {
-  text: string;                
-  variant: 'primary' | 'secondary';
+  variant: 'text' | 'contained' | 'outlined';
+  color: 'primary' | 'secondary';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  borderRadius?: number;
 }
 
 const {
-    text,
     disabled,
     type = 'button',
 } = defineProps<ButtonProps>();
