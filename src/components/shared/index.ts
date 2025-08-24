@@ -1,4 +1,5 @@
 import AppButton from "./AppButton/AppButton.vue";
+import AppIcon from "./AppIcon/AppIcon.vue";
 import ItemCaption from "./ItemCaption/ItemCaption.vue";
 import ItemTag from "./ItemTag/ItemTag.vue";
 import TextInput from "./TextInput/TextInput.vue";
@@ -10,4 +11,14 @@ export const sharedComponents = [
     { name: 'ItemTag', component: ItemTag },
     { name: 'TextInput', component: TextInput },
     { name: 'UserAvatar', component: UserAvatar },
+    { name: 'AppIcon', component: AppIcon },
 ];
+
+export {
+    AppButton,
+    AppIcon,
+    ItemCaption,
+    ItemTag,
+    TextInput,
+    UserAvatar,
+}
