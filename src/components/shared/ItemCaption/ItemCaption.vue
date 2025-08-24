@@ -5,11 +5,12 @@
         :key="item.name"
     >
         <span>
+            <app-icon
+              v-if="item.icon"
+              :name="item.icon"
+            />
             <span>
-                {{ item.icon }}
-            </span>
-            <span>
-                {{ item.name }}
+                {{ item.value }}
             </span>
         </span>
         <span v-if="itemIdx < items.length - 1">
@@ -20,10 +21,13 @@
 </template>
 
 <script setup lang="ts">
+import type { IconName } from '@/assets/icons';
+
   interface CaptionProps {
     items: {
         name: string,
-        icon: string // TODO: icon props
+        value: string | number;
+        icon: IconName | null
     }[],
   }
   
