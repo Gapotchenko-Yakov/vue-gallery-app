@@ -1,5 +1,10 @@
 # Vue 3 + TypeScript + Vite
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Нормализация данных
+**TODO**: использовать json.server.
+Сейчас данные хранятся в константах в денормализованном виде: Посты содержат вложенные массивы комментариев, каждый комментарий содержит объект пользователя.
+Сейчас это некритичнно, так так:
+1) объект комментария привязан ровно к одному посту, редактирование комментария в одном месте допустимо, так как каждый комментарий в единичном экземпляре
+2) объекты пользователей дублируется, но их добавление, удаление, изменение не предусмотрено заданием, пользователь постоянен для комментария (а комментарий вложен в пост)
+3) отсутствие сохранения данных: после завершения работы приложения изменения теряются, использование json-server вместо констант позволит сохранять данные между сессиями.
