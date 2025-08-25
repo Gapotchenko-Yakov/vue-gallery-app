@@ -1,23 +1,28 @@
 <template>
-  <div>
-    <app-icon
-        name="menu"
-    />
-    <app-icon
-        name="logo"
-    />
-    <nav-bar v-if="showNavLinks"/>
+  <div class="px-[30px] py-[15px]">
+    <div>
+        <div class="flex gap-20 align-items-center">
+            <span class="flex gap-[15px] align-items-center">
+                <button
+                    type="button"
+                    class="flex lg:hidden"
+                >
+                    <app-icon
+                        name="menu"
+                    />
+                </button>
+                <app-icon
+                    name="logo"
+                />
+            </span>
+            <nav-bar class="hidden lg:flex"/>
+        </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-    interface AppHeaderProps {
-        showNavLinks?: boolean;
-    }
-
-    const {
-        showNavLinks
-    } = defineProps<AppHeaderProps>();
+    import NavBar from '../NavBar/NavBar.vue';
 </script>
 
 <style scoped>
