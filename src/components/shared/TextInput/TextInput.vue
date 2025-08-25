@@ -1,23 +1,32 @@
 <template>
-    <div class="input-wrapper">
+    <div 
+    class="bg-gray-100 rounded-input flex items-center"
+    :class="{'ring-1 ring-primary': isFocused}"
+    @focusin="isFocused = true"
+    @focusout="isFocused = false"
+    >
         <slot name="left-icon" />
         <input 
             :value="modelValue" 
             :placeholder="placeholder" 
             :disabled="disabled" 
             @input="handleChange"
+            class="flex flex-1 outline-none"
         />
-        <app-button
+        <button
             v-if="showClear && modelValue"
             type="button"
-            variant="clear"
         >
-            ✕
-        </app-button>
+            <app-icon
+                name="cross"
+            />
+        </button>
     </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+
 interface InputProps  {
   modelValue: string;
   placeholder?: string;
@@ -30,9 +39,12 @@ const {
     placeholder
 } = defineProps<InputProps>();
 
-const handleChange = () => {
-    console.log("🚀 ~ handleChange ~ handleChange:", handleChange)
-}
+const emit = defineEmits(['update:modelValue']);
+
+const isFocused = ref(false);
+
+const handleChange = (e: Event) => {
+  emit('update:modelValue', (e.target as HTMLInputElement).value)}
 </script>
 
 <style scoped>
