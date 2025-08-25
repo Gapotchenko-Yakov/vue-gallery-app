@@ -1,8 +1,8 @@
 <template>
-  <div class="px-[30px] py-[15px]">
+  <div class="px-[30px] py-[15px] bg-black text-white">
     <div>
-        <div class="flex gap-20 align-items-center">
-            <span class="flex gap-[15px] align-items-center">
+        <div class="flex gap-20 items-center">
+            <span class="flex gap-[15px] items-center">
                 <button
                     type="button"
                     class="flex lg:hidden"
