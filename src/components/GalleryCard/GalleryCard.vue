@@ -1,15 +1,19 @@
 <template>
-  <div class="gallery-card border rounded-lg overflow-hidden shadow-sm">
-    <img :src="data.image" alt="" class="w-full h-48 object-cover" />
+  <div class="flex flex-col gap-[10px]">
+    <img 
+    :src="data.image" 
+    alt="" 
+    class="w-full h-[250px] object-cover rounded-image" 
+    />
 
-    <div class="p-4 flex flex-col gap-2">
       <item-caption 
-      :items="metaCaptions" 
+      :items="metaCaptions"
+      class="text-gray-600"
       />
 
-      <h3 class="text-lg font-semibold">{{ data.title }}</h3>
+      <h3 class="text-xl">{{ data.title }}</h3>
 
-      <p class="text-gray-600">{{ data.description }}</p>
+      <p class="font-body text-base leading-[25px] font-medium">{{ data.description }}</p>
 
       <div class="flex flex-wrap gap-2">
         <item-tag 
@@ -17,10 +21,10 @@
             :key="tag" 
             :text="tag"
             :interactive="false"
+            class="text-sm"
         />
       </div>
     </div>
-  </div>
 </template>
 
 <script setup lang="ts">
