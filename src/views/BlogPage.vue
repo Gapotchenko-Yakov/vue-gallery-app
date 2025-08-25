@@ -1,16 +1,20 @@
 <template>
-  <div class="bg-white text-black h-100">
+  <div class="flex flex-col gap-5">
     <search-panel
       title="Блог"
       :filters="tags"
     />
     <!-- gallery grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-      <gallery-card 
-        v-for="card in galleryData"
-        :key="card.id"
-        :data="card"
-      />
+    <div class="p-[30px] mx-auto">
+      <div class="p-[30px] bg-white rounded-container max-w-[1300px] w-full">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <gallery-card 
+            v-for="card in galleryData"
+            :key="card.id"
+            :data="card"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
