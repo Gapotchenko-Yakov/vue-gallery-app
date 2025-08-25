@@ -17,13 +17,13 @@ export const tags = [
 export const galleryData: Post[] = [
     {
         id: 'p1',
-        image: 'https://picsum.photos/id/1015/400/250',
+        image: 'src\\assets\\test-pixel-perfect.jpg',
         meta: [
-            { name: 'date', value: '01/08/2025' },
-            { name: 'readTime', value: '5 мин' },
+            { name: 'date', value: '04/09/2025' },
+            { name: 'readTime', value: '2 мин' },
         ],
-        title: 'Утро в городе',
-        description: 'Короткий обзор красивых утренних улиц большого города.',
+        title: 'Вдохновение в каждом шаге',
+        description: 'Наши путешественники находят вдохновение в каждом шаге своего пути.',
         paragraphs: [
             'Раннее утро оживляет улицы, наполняя их звуками и движением.',
             'Пешеходы спешат на работу, а кафе начинают готовить свежий кофе.',
@@ -31,9 +31,8 @@ export const galleryData: Post[] = [
         ],
         comments: [
             { id: 'c1', author: users[0], text: 'Очень атмосферно!', createdAt: '2025-08-01T08:00', updatedAt: '2025-08-01T08:00' },
-            { id: 'c2', author: users[1], text: 'Люблю такие утренние фотографии.', createdAt: '2025-08-01T09:00', updatedAt: '2025-08-01T09:00' },
         ],
-        tags: ['Город', 'Люди', 'Архитектура'],
+        tags: ['Природа', 'Люди'],
     },
     {
         id: 'p2',
@@ -267,6 +266,26 @@ export const galleryData: Post[] = [
         ],
         tags: ['Напитки', 'Еда'],
     },
+    {
+        id: 'p13',
+        image: 'https://picsum.photos/id/1015/400/250',
+        meta: [
+            { name: 'date', value: '01/08/2025' },
+            { name: 'readTime', value: '5 мин' },
+        ],
+        title: 'Утро в городе',
+        description: 'Короткий обзор красивых утренних улиц большого города.',
+        paragraphs: [
+            'Раннее утро оживляет улицы, наполняя их звуками и движением.',
+            'Пешеходы спешат на работу, а кафе начинают готовить свежий кофе.',
+            'В такой атмосфере город кажется особенно живым и вдохновляющим.',
+        ],
+        comments: [
+            { id: 'c1', author: users[0], text: 'Очень атмосферно!', createdAt: '2025-08-01T08:00', updatedAt: '2025-08-01T08:00' },
+            { id: 'c2', author: users[1], text: 'Люблю такие утренние фотографии.', createdAt: '2025-08-01T09:00', updatedAt: '2025-08-01T09:00' },
+        ],
+        tags: ['Город', 'Люди', 'Архитектура'],
+    }
 ];
 
 
