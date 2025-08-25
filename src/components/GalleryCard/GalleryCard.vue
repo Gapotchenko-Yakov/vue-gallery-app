@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { monthNames } from '@/const/date';
+import { monthShortNames } from '@/const/date';
 import { mapMetaCodeToIcon } from '@/const/posts';
 import type { Post } from '@/types/post';
 import { computed } from 'vue';
@@ -46,7 +46,7 @@ const metaCaptions = computed(() => {
     const date = new Date(meta.value);
 
     const day = date.getDate();
-    const month = monthNames[date.getMonth()];
+    const month = monthShortNames[date.getMonth()];
 
     return ({
       name: meta.name,
