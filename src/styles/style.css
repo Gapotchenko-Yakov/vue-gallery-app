@@ -31,6 +31,7 @@
   /* Углы */
   --radius-button: 6px;
   --radius-image: 12px;
+  --radius-container: 12px;
   --radius-3xl: 20px;
   --radius-input: 6px;
 }
@@ -51,6 +52,5 @@ body {
 
 #app {
   margin: 0 auto;
-  max-width: 1280px; 
   padding: 0;
 }
