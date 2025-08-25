@@ -1,12 +1,13 @@
 <template>
-  <nav>
+  <nav class="flex gap-5">
     <router-link 
       v-for="route in routes"
       :key="route.name"
       :to="route.path"
-      class="router-link"
+      class="px-[14px] py-[8px] rounded-button no-underline"
+      active-class="bg-white-10 text-primary"
     >
-      {{ route.name }}
+        {{ route.name }}
   </router-link>
   </nav>
 </template>
@@ -18,10 +19,5 @@ import { routes } from '../../router';
 </script>
 
 <style scoped>
-  @import './NavBar.scss';
 
-  nav {
-    display: flex;
-    gap: 1rem;
-  }
 </style>
