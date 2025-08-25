@@ -1,5 +1,40 @@
 @import "tailwindcss";
 
+@theme {
+  /* Цвета */
+  --color-gray-100: #f9f9f9;
+  --color-gray-200: #f1f1f2;
+  --color-gray-300: #e1e3ea;
+  --color-gray-400: #d8d8e5;
+  --color-gray-500: #a1a5b7;
+  --color-gray-600: #7e8299;
+  --color-gray-700: #5e6278;
+  --color-gray-800: #3f4254;
+  --color-gray-900: #181c32;
+  --color-primary: #3e97ff;
+  --color-primary-20: #3e97ff51;
+  --color-primary-active: #2884ef;
+  --color-primary-light: #eef6ff;
+  --color-white: #ffffff;
+  --color-white-dark: #e5e5e5;
+  --color-white-10: #ffffff1a;
+  --color-black: #000000;
+
+  /* Типография */
+  --font-body: Inter, sans-serif;
+  /* --font-body-size: 16px;
+  --font-body-line-height: 25px;
+  --font-body-weight: 500; */
+  --text-xl: 22px;
+  --text-3xl: 32px;
+
+  /* Углы */
+  --radius-button: 6px;
+  --radius-image: 12px;
+  --radius-3xl: 20px;
+  --radius-input: 6px;
+}
+
 :root {
   color-scheme: light dark;
   font-synthesis: none;
@@ -19,6 +54,3 @@ body {
   max-width: 1280px; 
   padding: 0;
 }
-
-/* TODO: глобальные переменные для цветов, размеров, шрифтов и т д */
-
