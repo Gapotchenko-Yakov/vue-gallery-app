@@ -7,6 +7,8 @@ import Messages from './messages.svg';
 import SearchList from './search-list.svg';
 import Search from './search.svg';
 import Time from './time.svg';
+import Plus from './plus.svg';
+import Check from './check.svg';
 
 export const icons = {
     'chevron-down': ChevronDown,
@@ -18,6 +20,8 @@ export const icons = {
     'search-list': SearchList,
     'search': Search,
     'time': Time,
+    'plus': Plus,
+    'check': Check,
 } as const;
 
 export type IconName = keyof typeof icons;
