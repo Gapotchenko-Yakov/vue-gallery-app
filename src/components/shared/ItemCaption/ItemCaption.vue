@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="flex gap-[10px] items-baseline">
     <template
         v-for="(item, itemIdx) in items"
         :key="item.name"
     >
-        <span>
+        <span class="flex gap-1">
             <app-icon
               v-if="item.icon"
               :name="item.icon"

@@ -3,6 +3,7 @@
     :disabled="disabled"
     @click="handleClick"
     :type="type"
+    class="rounded-button"
   >
     <slot />
   </button>
@@ -15,7 +16,6 @@ import {
 
 interface ButtonProps {
   variant: 'text' | 'contained' | 'outlined';
-  color: 'primary' | 'secondary';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   borderRadius?: number;

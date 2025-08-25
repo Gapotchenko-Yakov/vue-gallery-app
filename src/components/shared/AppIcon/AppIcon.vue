@@ -1,9 +1,11 @@
 <template>
-  <component
-    :is="icons[name]"
-    :class="['icon', size]"
-    :style="{ color }"
-  />
+  <span>
+      <component
+        :is="icons[name]"
+        :class="['icon', size]"
+        :style="{ color }"
+      />
+  </span>
 </template>
 
 <script setup lang="ts">
