@@ -81,6 +81,13 @@ function pluralizeComments(count: number) {
   return captions;
 })
 
+watch(modalOpen, (val) => {
+  if (val) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = ''
+  }
+})
 </script>
 
 <style scoped>
