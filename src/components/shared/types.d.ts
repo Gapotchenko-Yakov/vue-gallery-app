@@ -5,6 +5,7 @@ import {
     ItemTag,
     TextInput,
     UserAvatar,
+    AppModal,
 } from ".";
 
 declare module '@vue/runtime-core' {
@@ -15,5 +16,6 @@ declare module '@vue/runtime-core' {
         ItemTag: typeof ItemTag;
         UserAvatar: typeof UserAvatar;
         AppIcon: typeof AppIcon;
+        AppModal: typeof AppModal,
     }
 }
