@@ -1,13 +1,20 @@
 <template>
-  <div class="flex flex-col gap-[10px]">
+  <post-modal
+    v-model:isOpen="modalOpen"
+    :post="data"
+  />
+  <div 
+    class="flex flex-col gap-[10px] cursor-pointer"
+    @click="modalOpen = true"
+  >
     <img 
-    :src="data.image" 
-    alt="" 
-    class="w-full h-[250px] object-cover rounded-image" 
+      :src="data.image" 
+      alt="" 
+      class="w-full h-[250px] object-cover rounded-image" 
     />
 
       <item-caption 
-      :items="metaCaptions"
+        :items="metaCaptions"
       />
 
       <h3 class="text-xl">{{ data.title }}</h3>
