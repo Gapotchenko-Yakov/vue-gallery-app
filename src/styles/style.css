@@ -19,9 +19,13 @@
   --color-white-dark: #e5e5e5;
   --color-white-10: #ffffff1a;
   --color-black: #000000;
+  --color-overlay: #181C3299; 
+  /* --color-overlay: rgba(24, 28, 50, 0.6); */
 
   /* Типография */
   --font-body: Inter, sans-serif;
+  --font-inter: Inter, sans-serif;
+  --font-roboto: Roboto, sans-serif;
   /* --font-body-size: 16px;
   --font-body-line-height: 25px;
   --font-body-weight: 500; */
@@ -32,8 +36,12 @@
   --radius-button: 6px;
   --radius-image: 12px;
   --radius-container: 12px;
+  --radius-modal: 12px;
   --radius-3xl: 20px;
   --radius-input: 6px;
+
+  /* z-index */
+  /* TODO: add for AppModal */
 }
 
 :root {
