@@ -1,6 +1,6 @@
 <template>
     <div 
-    class="bg-gray-100 rounded-input flex items-center"
+    class="rounded-input flex items-center"
     :class="{'ring-1 ring-primary': isFocused}"
     @focusin="isFocused = true"
     @focusout="isFocused = false"

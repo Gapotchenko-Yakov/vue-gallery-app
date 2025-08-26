@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-[10px] items-baseline">
+  <div class="flex gap-[10px] items-baseline text-gray-600">
     <template
         v-for="(item, itemIdx) in items"
         :key="item.name"
