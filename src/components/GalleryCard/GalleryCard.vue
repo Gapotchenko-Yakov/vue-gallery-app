@@ -8,7 +8,6 @@
 
       <item-caption 
       :items="metaCaptions"
-      class="text-gray-600"
       />
 
       <h3 class="text-xl">{{ data.title }}</h3>
@@ -28,11 +27,10 @@
 </template>
 
 <script setup lang="ts">
-import { monthShortNames } from '@/const/date';
-import { mapMetaCodeToIcon } from '@/const/posts';
+import { useMetaCaptions } from '@/composables/useMetaCaptions';
 import type { Post } from '@/types/post';
-import { computed } from 'vue';
-
+import { ref, watch } from 'vue';
+import { PostModal } from '..';
 
 interface GalleryCardProps {
   data: Post;
@@ -40,46 +38,9 @@ interface GalleryCardProps {
 
 const { data } = defineProps<GalleryCardProps>();
 
-const metaCaptions = computed(() => {
-  const captions = data.meta.map((meta) => {
-  if(meta.name === 'date'){
-    const date = new Date(meta.value);
+const modalOpen = ref(false);
 
-    const day = date.getDate();
-    const month = monthShortNames[date.getMonth()];
-
-    return ({
-      name: meta.name,
-      value: `${day} ${month}`,
-      icon: mapMetaCodeToIcon[meta.name],
-  })
-  }
-
-    return ({
-      name: meta.name,
-      value: meta.value,
-      icon: mapMetaCodeToIcon[meta.name],
-  })
-})
-
-function pluralizeComments(count: number) {
-  const mod10 = count % 10;
-  const mod100 = count % 100;
-
-  if (mod100 >= 11 && mod100 <= 14) return `${count} комментариев`;
-  if (mod10 === 1) return `${count} комментарий`;
-  if (mod10 >= 2 && mod10 <= 4) return `${count} комментария`;
-  return `${count} комментариев`;
-}
-
-  captions.push({
-    name: 'comments',
-    value: data.comments?.length ? pluralizeComments(data.comments?.length) : '0 комментариев',
-    icon: mapMetaCodeToIcon['comments'],
-  });
-
-  return captions;
-})
+const {metaCaptions} = useMetaCaptions(data);
 
 watch(modalOpen, (val) => {
   if (val) {
