@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-5">
+  <div class="pb=[30px] bg-gray-200 flex flex-col gap-5 min-h-full">
     <search-panel
       title="Блог"
       :filters="tags"
@@ -9,9 +9,9 @@
       @update:search="handleSearchChange"
     />
     <!-- gallery grid -->
-    <div class="p-[30px] mx-auto">
+    <div class="px-[30px] min-h-full">
       <div class="p-[30px] bg-white rounded-container max-w-[1300px] w-full">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10">
           <gallery-card 
             v-for="card in filteredAndSearchedGalleryData"
             :key="card.id"

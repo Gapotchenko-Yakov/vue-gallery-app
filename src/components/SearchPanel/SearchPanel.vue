@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white flex flex-col px-[95px]">
     <!-- Первая строка: заголовок, инпут и кнопки -->
-    <div class="py-5 flex flex-wrap items-center justify-between">
+    <div class="py-5 flex items-center justify-between">
       <div class="flex gap-10 items-center">
         <h3 class="text-3xl font-semibold">{{ title }}</h3>
         <text-input
@@ -16,11 +16,11 @@
         </text-input>
       </div>
 
-      <div class="flex gap-1">
+      <div class="flex gap-2.5">
         <app-button
           variant="text"
           @click="clearFilters"
-          class="text-primary-active"
+          class="text-primary-active font-body text-sm leading-none font-medium"
         >
           Очистить
       </app-button>
@@ -28,9 +28,9 @@
         <app-button
           variant="text"
           @click="toggleFilters"
-          class="flex gap-1 text-gray-500"
+          class="flex gap-1 text-gray-500 font-body text-sm leading-none font-medium"
         >
-          Фильтр        
+          <span>Фильтр</span>   
           <AppIcon :name="isOpen ? 'chevron-up' : 'chevron-down'" />
         </app-button>
       </div>

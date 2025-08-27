@@ -1,10 +1,10 @@
 <template>
-  <nav class="flex gap-5">
+  <nav class="flex">
     <router-link 
       v-for="route in routes"
       :key="route.name"
       :to="route.path"
-      class="px-[14px] py-[8px] rounded-button no-underline"
+      class="px-3.5 py-2 rounded-button no-underline font-body text-base leading-none font-semibold"
       active-class="bg-white-10 text-primary"
     >
         {{ route.name }}

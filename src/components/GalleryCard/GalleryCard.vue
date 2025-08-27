@@ -4,7 +4,7 @@
     :post="data"
   />
   <div 
-    class="flex flex-col gap-[10px] cursor-pointer"
+    class="flex flex-col gap-2.5 cursor-pointer"
     @click="modalOpen = true"
   >
     <img 
