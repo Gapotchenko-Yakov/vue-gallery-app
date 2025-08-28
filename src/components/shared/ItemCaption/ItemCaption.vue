@@ -1,19 +1,23 @@
 <template>
-  <div class="flex gap-[10px] items-baseline text-gray-600">
+  <div class="flex gap-2.5 items-center text-gray-600">
     <template
         v-for="(item, itemIdx) in items"
         :key="item.name"
     >
-        <span class="flex gap-1">
+        <span class="flex gap-1 font-body text-sm leading-none font-medium">
             <app-icon
               v-if="item.icon"
               :name="item.icon"
+              :size="18"
             />
             <span>
                 {{ item.value }}
             </span>
         </span>
-        <span v-if="itemIdx < items.length - 1">
+        <span 
+        v-if="itemIdx < items.length - 1"
+        class="font-inter font-semibold text-[10px] leading-none tracking-[-0.03em]"
+        >
             •
         </span>
     </template>

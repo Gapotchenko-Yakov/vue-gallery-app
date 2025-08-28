@@ -9,7 +9,7 @@
       @update:search="handleSearchChange"
     />
     <!-- gallery grid -->
-    <div class="px-[30px] min-h-full">
+    <div class="px-[30px] flex gap-x-2.5 min-h-full">
       <div class="p-[30px] bg-white rounded-container max-w-[1300px] w-full">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10">
           <gallery-card 

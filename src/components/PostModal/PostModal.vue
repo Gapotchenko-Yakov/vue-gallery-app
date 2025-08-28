@@ -5,7 +5,7 @@
     <div class="flex flex-col gap-[15px] p-[15px]">
         <div class="flex flex-col gap-2.5">
         <div class="flex justify-between">
-            <h3 class="text-xl">{{ post.title }}</h3>
+            <h3 class="font-inter font-semibold text-2xl leading-none">{{ post.title }}</h3>
             <button
                 type="button"
                 @click="cancel"
@@ -42,7 +42,6 @@
                     :key="tag"
                     :text="tag"
                     :interactive="false"
-                    class="px-3.5 py-1.5"
                 />
             </div>
         </div>
@@ -112,7 +111,6 @@ const cancel = () => {
   emit('update:isOpen', false)
 }
 
-// TODO: make composable or computed
 const { metaCaptions } = useMetaCaptions(post);
 
 function getCommentDateFormatted(date: Date): string {

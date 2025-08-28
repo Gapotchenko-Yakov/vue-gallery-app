@@ -201,7 +201,7 @@ export const galleryData: Post[] = [
     },
     {
         id: 'p10',
-        image: 'https://picsum.photos/id/1105/400/250',
+        image: 'https://picsum.photos/id/1035/400/250',
         meta: [
             { name: 'date', value: '10/08/2025' },
             { name: 'readTime', value: '7 мин' },
@@ -245,7 +245,7 @@ export const galleryData: Post[] = [
     },
     {
         id: 'p12',
-        image: 'https://picsum.photos/id/1125/400/250',
+        image: 'https://picsum.photos/id/1100/400/250',
         meta: [
             { name: 'date', value: '12/08/2025' },
             { name: 'readTime', value: '5 мин' },
@@ -266,7 +266,7 @@ export const galleryData: Post[] = [
     },
     {
         id: 'p13',
-        image: 'https://picsum.photos/id/1015/400/250',
+        image: 'https://picsum.photos/id/1035/400/250',
         meta: [
             { name: 'date', value: '01/08/2025' },
             { name: 'readTime', value: '5 мин' },

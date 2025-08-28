@@ -17,7 +17,7 @@
         :items="metaCaptions"
       />
 
-      <h3 class="text-xl">{{ data.title }}</h3>
+      <h3 class="font-inter font-semibold text-xl leading-none tracking-[-0.03em]">{{ data.title }}</h3>
 
       <p class="font-body text-base leading-[25px] font-medium">{{ data.description }}</p>
 
@@ -27,7 +27,6 @@
             :key="tag" 
             :text="tag"
             :interactive="false"
-            class="text-sm"
         />
       </div>
     </div>

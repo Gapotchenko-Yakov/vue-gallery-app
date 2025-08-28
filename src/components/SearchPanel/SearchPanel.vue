@@ -7,16 +7,16 @@
         <text-input
           v-model="searchValue"
           placeholder="Поиск..."
-          class="w-100 h-10 px-[10px] gap-[10px]"
+          class="w-100 h-10 px-[10px] gap-[10px] bg-gray-100"
           @update:modelValue="handleSearchChange"
         >
           <template #left-icon>
-            <app-icon name="search" />
+            <app-icon name="search" :size="12"/>
           </template>
         </text-input>
       </div>
 
-      <div class="flex gap-2.5">
+      <div class="flex gap-2.5 items-baseline">
         <app-button
           variant="text"
           @click="clearFilters"
@@ -47,7 +47,6 @@
         :text="filter"
         :checked="selectedTags.has(filter)"
         :interactive="true"
-        class="font-base"
         @update:checked="handleFilterChange(filter)"
       />
     </div>
