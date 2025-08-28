@@ -1,7 +1,7 @@
 <template>
   <div class="flex gap-2.5 items-center text-gray-600">
     <template
-        v-for="(item, itemIdx) in items"
+        v-for="(item, itemIdx) in props.items"
         :key="item.name"
     >
         <span class="flex gap-1 font-body text-sm leading-none font-medium">
@@ -15,7 +15,7 @@
             </span>
         </span>
         <span 
-        v-if="itemIdx < items.length - 1"
+        v-if="itemIdx < props.items.length - 1"
         class="font-inter font-semibold text-[10px] leading-none tracking-[-0.03em]"
         >
             •
@@ -35,9 +35,7 @@ import type { IconName } from '@/assets/icons';
     }[],
   }
   
-  const {
-    items,
-  } = defineProps<CaptionProps>();
+  const props = defineProps<CaptionProps>();
 </script>
 
 <style scoped>

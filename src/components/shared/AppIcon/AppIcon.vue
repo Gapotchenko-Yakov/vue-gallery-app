@@ -1,9 +1,9 @@
 <template>
   <span class="flex justify-center items-center">
       <component
-        :is="icons[name]"
+        :is="icons[props.name]"
         :class="['icon']"
-        :style="{ color }"
+        :style="{ color: props.color }"
       />
   </span>
 </template>
@@ -17,9 +17,7 @@ interface AppIconProps {
   color?: string;
 }
 
-const {
-    name, color
-} = defineProps<AppIconProps>()
+const props = defineProps<AppIconProps>()
 
 </script>
 

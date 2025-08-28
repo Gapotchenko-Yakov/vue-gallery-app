@@ -5,7 +5,7 @@
     <div class="flex flex-col gap-[15px] p-[15px]">
         <div class="flex flex-col gap-2.5">
         <div class="flex justify-between">
-            <h3 class="font-inter font-semibold text-2xl leading-none">{{ post.title }}</h3>
+            <h3 class="font-inter font-semibold text-2xl leading-none">{{ props.post.title }}</h3>
             <button
                 type="button"
                 @click="cancel"
@@ -24,21 +24,21 @@
         <!-- Контент -->
         <div class="rounded-image w-full">
             <img 
-                :src="post.image"
+                :src="props.post.image"
                 alt=""
                 class="rounded-image w-full"
             />
         </div>
         <div class="flex flex-col gap-2.5 font-body text-base">
             <p
-                v-for="(paragraph, parIdx) in post.paragraphs"
+                v-for="(paragraph, parIdx) in props.post.paragraphs"
                 :key="parIdx"
                 >
                 {{ paragraph }}
             </p>
             <div class="flex gap-2.5">
                 <item-tag
-                    v-for="tag in post.tags"
+                    v-for="tag in props.post.tags"
                     :key="tag"
                     :text="tag"
                     :interactive="false"
@@ -48,13 +48,13 @@
         <div class="flex flex-col gap-2.5">
             <div class="flex gap-1.5">
                 <h4 class="font-inter ">Комментариев</h4>
-                <span>{{ post.comments.length }}</span>
+                <span>{{ props.post.comments.length }}</span>
             </div>
             <comment-form 
                 @submit="addComment"
             />
             <div
-                v-for="comment in post.comments"
+                v-for="comment in props.post.comments"
                 :key="comment.id"
                 class="px-3 pt-3 flex gap-3"
             >
@@ -90,15 +90,12 @@ interface PostModalProps {
     post: Post;
 }
 
-const {
-    isOpen,
-    post,
-} = defineProps<PostModalProps>()
+const props = defineProps<PostModalProps>()
 
-const localValue = ref(isOpen)
+const localValue = ref(props.isOpen)
 
 watch(localValue, (val) => emit('update:isOpen', val))
-watch(() => isOpen, (val) => (localValue.value = val))
+watch(() => props.isOpen, (val) => (localValue.value = val))
 
 const emit = defineEmits<{
   (e: 'update:isOpen', value: boolean): void;
@@ -113,7 +110,7 @@ const addComment = (text: string) => {
     emit('add-comment', text)
 }
 
-const { metaCaptions } = useMetaCaptions(post);
+const { metaCaptions } = useMetaCaptions(props.post);
 
 function getCommentDateFormatted(date: Date): string {
   const day = date.getDate();

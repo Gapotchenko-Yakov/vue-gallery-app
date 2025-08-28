@@ -2,24 +2,24 @@
     <span
     :class="[
       'rounded-tag px-3.5 py-1.5 flex gap-1.5 justify-center items-center', 
-      interactive ? 'font-body text-base leading-none font-medium' : 'font-body text-sm leading-none font-medium',
+      props.interactive ? 'font-body text-base leading-none font-medium' : 'font-body text-sm leading-none font-medium',
       { 
-        'bg-primary-light': !interactive || (interactive && !checked), 
-        'bg-primary': interactive && checked, 
-        // 'bg-primary-20': interactive && !checked,
-        'text-white': interactive && checked, 
-        'text-primary-active': !interactive || (interactive && !checked),
-        'cursor-pointer': interactive,
+        'bg-primary-light': !props.interactive || (props.interactive && !props.checked), 
+        'bg-primary': props.interactive && props.checked, 
+        // 'bg-primary-20': props.interactive && !props.checked,
+        'text-white': props.interactive && props.checked, 
+        'text-primary-active': !props.interactive || (props.interactive && !props.checked),
+        'cursor-pointer': props.interactive,
       }
     ]"
     @click="onToggle"
     >
       <span>
-        {{ text }}
+        {{ props.text }}
       </span>
       <app-icon
-        v-if="interactive"
-        :name="checked ? 'check' : 'plus'"
+        v-if="props.interactive"
+        :name="props.checked ? 'check' : 'plus'"
         :size="20"
       />
     </span>
@@ -32,15 +32,15 @@
         interactive?: boolean,
     }
 
-    const {
-        text, checked, interactive = false
-    } = defineProps<ItemTagProps>();
+    const props = withDefaults(defineProps<ItemTagProps>(),{
+      interactive: false
+    });
 
     const emit = defineEmits(['update:checked'])
 
     function onToggle() {
-      if (!interactive) return
-      emit('update:checked', !checked)
+      if (!props.interactive) return
+      emit('update:checked', !props.checked)
     }
 </script>
 

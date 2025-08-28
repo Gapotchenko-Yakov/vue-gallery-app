@@ -3,7 +3,7 @@
     <!-- Первая строка: заголовок, инпут и кнопки -->
     <div class="py-5 flex items-center justify-between">
       <div class="flex gap-10 items-center">
-        <h3 class="text-3xl font-semibold">{{ title }}</h3>
+        <h3 class="text-3xl font-semibold">{{ props.title }}</h3>
         <text-input
           v-model="searchValue"
           placeholder="Поиск..."
@@ -42,7 +42,7 @@
       class="py-5 flex flex-wrap gap-4"
     >
       <item-tag
-        v-for="(filter, idx) in filters"
+        v-for="(filter, idx) in currFilters"
         :key="idx"
         :text="filter"
         :checked="selectedTags.has(filter)"
@@ -55,22 +55,23 @@
 
 <script setup lang="ts">
 import type { Tag } from '@/types/post';
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 interface FilterPanelProps {
   title: string;
-  filters: readonly Tag[];
+  initialFilters: readonly Tag[];
   selectedTags: Set<Tag>;
   query: string;
 }
 
-const { title, filters: initialFilters } = defineProps<FilterPanelProps>()
+const props = defineProps<FilterPanelProps>()
 
 const emit = defineEmits(['update:search', 'update:filter', 'clear:search', 'clear:filter'])
 
 const searchValue = ref('')
 const isOpen = ref(false)
-const filters = ref([...initialFilters])
+const currFilters = computed(() => props.initialFilters)
+console.log("🚀 ~ currFilters:", currFilters.value)
 
 const toggleFilters = () => {
   isOpen.value = !isOpen.value

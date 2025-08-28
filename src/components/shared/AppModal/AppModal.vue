@@ -1,7 +1,7 @@
 <template>
   <teleport to="body">
     <div 
-      v-if="modelValue" 
+      v-if="props.modelValue" 
       class="fixed inset-0 z-50 bg-overlay flex flex-col items-center justify-center"
       @click.self="close"
     >
@@ -13,9 +13,7 @@
 </template>
 
 <script setup lang="ts">
-const {
-    modelValue,
-} = defineProps<{
+const props = defineProps<{
   modelValue: boolean
 }>()
 

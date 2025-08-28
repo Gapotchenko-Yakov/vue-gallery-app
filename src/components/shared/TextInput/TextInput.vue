@@ -7,15 +7,14 @@
   >
     <slot name="left-icon" />
     <input 
-      :value="modelValue" 
-      :placeholder="placeholder" 
-      :disabled="disabled"
-      :maxlength="maxLength"
+      :value="props.modelValue" 
+      :placeholder="props.placeholder" 
+      :disabled="props.disabled"
       @input="handleChange"
       class="flex flex-1 outline-none"
     />
     <button
-      v-if="showClear && modelValue"
+      v-if="props.showClear && props.modelValue"
       type="button"
       @click="clearInput"
       class="cursor-pointer"
@@ -36,13 +35,7 @@ interface InputProps  {
   maxLength?: number;
 }
 
-const {
-    modelValue,
-    placeholder,
-    disabled,
-    showClear,
-    maxLength,
-} = defineProps<InputProps>();
+const props = defineProps<InputProps>();
 const emit = defineEmits(['update:modelValue', 'clear', 'focus', 'blur']);
 
 const isFocused = ref(false);
@@ -57,12 +50,12 @@ const clearInput = () => {
 };
 
 const onFocus = () => {
-  isFocused.value = true
-  emit('focus')
-}
+  isFocused.value = true;
+  emit('focus');
+};
 
 const onBlur = () => {
-  isFocused.value = false
-  emit('blur')
-}
+  isFocused.value = false;
+  emit('blur');
+};
 </script>

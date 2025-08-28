@@ -2,7 +2,7 @@
   <div class="pb=[30px] bg-gray-200 flex flex-col gap-5 min-h-full">
     <search-panel
       title="Блог"
-      :filters="tags"
+      :initialFilters="tags"
       :selectedTags="selectedTags"
       :query="searchValue"
       @update:filter="handleFilterChange"      
@@ -64,12 +64,12 @@ const selectedTags = ref(new Set<Tag>());
 const searchValue = ref('');
 
 const gallery = ref([...galleryData]); 
-const currentUserID = '1';
+const currentUserID = 'u1';
 
 
 const filteredGalleryData = computed<Post[]>(() => {
-  if (!selectedTags.value.size) return galleryData;
-  return galleryData.filter(card => card.tags.some((cardTag) => selectedTags.value?.has(cardTag)));
+  if (!selectedTags.value.size) return gallery.value;
+  return gallery.value.filter(card => card.tags.some((cardTag) => selectedTags.value?.has(cardTag)));
 });
 
 const filteredAndSearchedGalleryData = computed<Post[]>(() => {

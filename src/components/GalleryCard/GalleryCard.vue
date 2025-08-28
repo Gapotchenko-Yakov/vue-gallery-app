@@ -1,7 +1,7 @@
 <template>
   <post-modal
     v-model:isOpen="modalOpen"
-    :post="data"
+    :post="props.data"
     @add-comment="addComment"
   />
   <div 
@@ -9,7 +9,7 @@
     @click="modalOpen = true"
   >
     <img 
-      :src="data.image" 
+      :src="props.data.image" 
       alt="" 
       class="w-full h-[250px] object-cover rounded-image" 
     />
@@ -18,13 +18,13 @@
         :items="metaCaptions"
       />
 
-      <h3 class="font-inter font-semibold text-xl leading-none tracking-[-0.03em]">{{ data.title }}</h3>
+      <h3 class="font-inter font-semibold text-xl leading-none tracking-[-0.03em]">{{ props.data.title }}</h3>
 
-      <p class="font-body text-base leading-[25px] font-medium">{{ data.description }}</p>
+      <p class="font-body text-base leading-[25px] font-medium">{{ props.data.description }}</p>
 
       <div class="flex flex-wrap gap-2">
         <item-tag 
-            v-for="tag in data.tags" 
+            v-for="tag in props.data.tags" 
             :key="tag" 
             :text="tag"
             :interactive="false"
@@ -43,20 +43,20 @@ interface GalleryCardProps {
   data: Post;
 }
 
-const { data } = defineProps<GalleryCardProps>();
+const props = defineProps<GalleryCardProps>();
 
 const emit = defineEmits<{
   (e: 'add-comment', value: { postId: string; comment: string }): void;
 }>();
 
 const addComment = (text: string) => {
-  emit('add-comment', {postId: data.id, comment: text})
+  emit('add-comment', {postId: props.data.id, comment: text})
 }
 
 
 const modalOpen = ref(false);
 
-const {metaCaptions} = useMetaCaptions(data);
+const {metaCaptions} = useMetaCaptions(props.data);
 
 watch(modalOpen, (val) => {
   if (val) {

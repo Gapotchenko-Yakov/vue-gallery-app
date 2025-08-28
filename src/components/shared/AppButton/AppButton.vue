@@ -1,8 +1,8 @@
 <template>
   <button
-    :disabled="disabled"
+    :disabled="props.disabled"
     @click="handleClick"
-    :type="type"
+    :type="props.type"
     class="rounded-button cursor-pointer"
   >
     <slot />
@@ -21,10 +21,7 @@ interface ButtonProps {
   borderRadius?: number;
 }
 
-const {
-    disabled,
-    type,
-} = withDefaults(defineProps<ButtonProps>(),{
+const props = withDefaults(defineProps<ButtonProps>(),{
   type: 'button',
   borderRadius: 0
 });

@@ -81,7 +81,7 @@ const emit = defineEmits<{
             <app-button
               type="button"
                 class="px-4 py-3 bg-primary text-white font-inter text-[13px] leading-3.5 font-semibold disabled:bg-gray-100 disabled:text-gray-400"
-              :disabled="textAreaValid"
+              :disabled="!textAreaValid"
               @click="submit"
             >
               Опубликовать
