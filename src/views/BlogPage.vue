@@ -15,7 +15,7 @@
       <div 
         v-if="filteredAndSearchedGalleryData.length > 0"
         class="p-[15px] 2xl:p-[30px] bg-white rounded-container max-w-[1300px] w-full">
-        <div class="grid grid-cols-1 sm:grid-cols-2 2xl:grid-cols-3 gap-x-5 gap-y-[25px] 2xl:gap-y-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-5 gap-y-[25px] 2xl:gap-y-10">
           <gallery-card 
             v-for="card in filteredAndSearchedGalleryData"
             :key="card.id"
