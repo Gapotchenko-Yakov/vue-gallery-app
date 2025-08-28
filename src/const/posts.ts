@@ -115,7 +115,7 @@ export const galleryData: Post[] = [
     },
     {
         id: 'p6',
-        image: 'https://picsum.photos/id/1065/400/250',
+        image: 'https://picsum.photos/id/1025/400/250',
         meta: [
             { name: 'date', value: '06/08/2025' },
             { name: 'readTime', value: '8 мин' },
@@ -157,7 +157,7 @@ export const galleryData: Post[] = [
     },
     {
         id: 'p8',
-        image: 'https://picsum.photos/id/1085/400/250',
+        image: 'https://picsum.photos/id/1025/400/250',
         meta: [
             { name: 'date', value: '08/08/2025' },
             { name: 'readTime', value: '6 мин' },
@@ -179,7 +179,7 @@ export const galleryData: Post[] = [
     },
     {
         id: 'p9',
-        image: 'https://picsum.photos/id/1095/400/250',
+        image: 'https://picsum.photos/id/1025/400/250',
         meta: [
             { name: 'date', value: '09/08/2025' },
             { name: 'readTime', value: '5 мин' },
@@ -222,7 +222,7 @@ export const galleryData: Post[] = [
     },
     {
         id: 'p11',
-        image: 'https://picsum.photos/id/1115/400/250',
+        image: 'https://picsum.photos/id/1025/400/250',
         meta: [
             { name: 'date', value: '11/08/2025' },
             { name: 'readTime', value: '6 мин' },
@@ -245,7 +245,7 @@ export const galleryData: Post[] = [
     },
     {
         id: 'p12',
-        image: 'https://picsum.photos/id/1100/400/250',
+        image: 'https://picsum.photos/id/1025/400/250',
         meta: [
             { name: 'date', value: '12/08/2025' },
             { name: 'readTime', value: '5 мин' },
