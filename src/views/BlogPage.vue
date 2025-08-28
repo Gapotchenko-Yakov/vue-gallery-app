@@ -11,14 +11,36 @@
       @clear:search="handleSearchClear"
     />
     <!-- gallery grid -->
-    <div class="px-[30px] flex gap-x-2.5 min-h-full">
-      <div class="p-[30px] bg-white rounded-container max-w-[1300px] w-full">
+    <div class="px-[30px] bg-gray-200 flex justify-center items-start gap-x-2.5">
+      <div 
+        v-if="filteredAndSearchedGalleryData.length > 0"
+        class="p-[30px] bg-white rounded-container max-w-[1300px] w-full">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10">
           <gallery-card 
             v-for="card in filteredAndSearchedGalleryData"
             :key="card.id"
             :data="card"
           />
+        </div>
+      </div>
+      <div 
+        v-else
+        class="px-[30px] py-[65px] bg-white rounded-container max-w-[1300px] w-full flex flex-col justify-start items-center gap-10 max-h-[314px]"
+      >
+        <app-icon
+          name="search-list"
+        />
+        <div class="max-h-[327px] p-5 flex flex-col justify-start gap-[27px]">
+          <div class="flex flex-col justify-start gap-2">
+            <div class="flex flex-col justify-start gap-1">
+              <h4 class="text-gray-600 font-inter font-medium text-sm leading-3.5">
+                Поиск не дал результатов
+              </h4>
+              <span class="text-gray-500 font-inter font-medium text-xs leading-5">
+                Повторите поиск или используйте фильтр для структуризации контента
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
