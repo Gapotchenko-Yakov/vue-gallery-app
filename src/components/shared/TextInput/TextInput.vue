@@ -1,27 +1,27 @@
 <template>
-    <div 
+  <div 
     class="rounded-input flex items-center"
-    :class="{'ring-1 ring-primary': isFocused}"
+    :class="{ 'ring-1 ring-primary': isFocused }"
     @focusin="isFocused = true"
     @focusout="isFocused = false"
+  >
+    <slot name="left-icon" />
+    <input 
+      :value="modelValue" 
+      :placeholder="placeholder" 
+      :disabled="disabled" 
+      @input="handleChange"
+      class="flex flex-1 outline-none"
+    />
+    <button
+      v-if="showClear && modelValue"
+      type="button"
+      @click="clearInput"
+      class="cursor-pointer"
     >
-        <slot name="left-icon" />
-        <input 
-            :value="modelValue" 
-            :placeholder="placeholder" 
-            :disabled="disabled" 
-            @input="handleChange"
-            class="flex flex-1 outline-none"
-        />
-        <button
-            v-if="showClear && modelValue"
-            type="button"
-        >
-            <app-icon
-                name="cross"
-            />
-        </button>
-    </div>
+      <app-icon name="cross" />
+    </button>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -36,17 +36,19 @@ interface InputProps  {
 
 const {
     modelValue,
-    placeholder
+    placeholder,
+    showClear
 } = defineProps<InputProps>();
-
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(['update:modelValue', 'clear']);
 
 const isFocused = ref(false);
 
 const handleChange = (e: Event) => {
-  emit('update:modelValue', (e.target as HTMLInputElement).value)}
-</script>
+  emit('update:modelValue', (e.target as HTMLInputElement).value);
+};
 
-<style scoped>
-  
-</style>
+const clearInput = () => {
+  emit('update:modelValue', '');
+  emit('clear');
+};
+</script>

@@ -9,6 +9,8 @@
           placeholder="Поиск..."
           class="w-100 h-10 px-[10px] gap-[10px] bg-gray-100"
           @update:modelValue="handleSearchChange"
+          :showClear="searchValue.length > 0"
+          @clear="handleClearSearch"
         >
           <template #left-icon>
             <app-icon name="search" :size="12"/>
@@ -19,8 +21,8 @@
       <div class="flex gap-2.5 items-baseline">
         <app-button
           variant="text"
-          @click="clearFilters"
-          class="text-primary-active font-body text-sm leading-none font-medium"
+          @click="handleClearFilter"
+          class="text-primary-active font-body text-sm leading-none font-medium cursor-pointer"
         >
           Очистить
       </app-button>
@@ -28,7 +30,7 @@
         <app-button
           variant="text"
           @click="toggleFilters"
-          class="flex gap-1 text-gray-500 font-body text-sm leading-none font-medium"
+          class="flex gap-1 text-gray-500 font-body text-sm leading-none font-medium cursor-pointer"
         >
           <span>Фильтр</span>   
           <AppIcon :name="isOpen ? 'chevron-up' : 'chevron-down'" />
@@ -66,7 +68,7 @@ interface FilterPanelProps {
 
 const { title, filters: initialFilters } = defineProps<FilterPanelProps>()
 
-const emit = defineEmits(['update:search', 'update:filter'])
+const emit = defineEmits(['update:search', 'update:filter', 'clear:search', 'clear:filter'])
 
 const searchValue = ref('')
 const isOpen = ref(false)
@@ -76,16 +78,20 @@ const toggleFilters = () => {
   isOpen.value = !isOpen.value
 }
 
-const clearFilters = () => {
-  searchValue.value = ''
-}
-
 const handleFilterChange = (filter: Tag) => {
   emit('update:filter', filter);
 }
 
 const handleSearchChange = (query: string) => {
   emit('update:search', query);
+}
+
+const handleClearSearch = () => {
+  emit('clear:search');
+}
+
+const handleClearFilter = () => {
+  emit('clear:filter');
 }
 </script>
 

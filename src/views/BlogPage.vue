@@ -7,6 +7,8 @@
       :query="searchValue"
       @update:filter="handleFilterChange"      
       @update:search="handleSearchChange"
+      @clear:filter="handleFilterClear"
+      @clear:search="handleSearchClear"
     />
     <!-- gallery grid -->
     <div class="px-[30px] flex gap-x-2.5 min-h-full">
@@ -32,7 +34,7 @@ import type { Post, Tag } from '@/types/post';
 import { computed, ref } from 'vue';
 
 // TODO: можно использовать state менеджер чтобы избежать property drill
-
+// а если связать стейт менеджер с localStorage, то и данные после завершения работы приложения будут сохраняться
 const selectedTags = ref(new Set<Tag>());
 const searchValue = ref('');
 
@@ -69,6 +71,14 @@ const handleFilterChange = (filter: Tag) => {
 
 function handleSearchChange(query: string) {
   searchValue.value = query;
+}
+
+function handleSearchClear() {
+  searchValue.value = '';
+}
+
+function handleFilterClear() {
+  selectedTags.value = new Set<Tag>();
 }
 
 </script>
