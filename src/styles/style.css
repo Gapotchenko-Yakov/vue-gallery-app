@@ -44,6 +44,10 @@
 
   /* z-index */
   /* TODO: add for AppModal */
+
+  /* breakpoints */
+  --breakpoint-md: 800px;
+  --breakpoint-xs: 375px;
 }
 
 :root {
