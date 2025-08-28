@@ -44,7 +44,7 @@ const emit = defineEmits<{
     class="flex flex-col gap-2.5 justify-start items-end"
     >
         <div class="max-w-[600px] w-full h-[149px] flex flex-col gap-1.5 justify-center items-start">
-            <div class="w-full h-full gap-2.5 flex justify-between">
+            <div class="relative w-full h-full gap-2.5 flex justify-between">
                 <textarea
                     v-model="text"
                     :class="[
@@ -52,14 +52,14 @@ const emit = defineEmits<{
                         'outline-danger': !textAreaValid,
                         'outline-primary': textAreaValid && isActive, 
                     },
-                    'w-full h-full px-[15px] py-[10px] resize-none border-[1px] rounded-input font-body text-base leading-[22px] font-medium'
+                    'w-full h-full px-[15px] py-[10px] resize-none border-[1px] border-primary rounded-input font-body text-base leading-[22px] font-medium'
                     ]"
                     placeholder="Введите комментарий"
                     />
                 <button
                     type="button"
                     @click="cancel"
-                    class="cursor-pointer"
+                    class="absolute w-[22px] h-[22px] top-2.5 right-[15px] cursor-pointer flex justify-center items-center"
                 >
                     <app-icon name="cross" />
                 </button>
