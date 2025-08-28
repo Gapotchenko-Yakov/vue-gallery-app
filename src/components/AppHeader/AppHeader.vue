@@ -6,7 +6,7 @@
                 <span class="flex gap-[15px] items-center">
                     <button
                         type="button"
-                        class="flex lg:hidden"
+                        class="flex 2xl:hidden"
                     >
                         <app-icon
                             name="menu"
@@ -16,7 +16,7 @@
                         name="logo"
                     />
                 </span>
-                <nav-bar class="hidden lg:flex gap-5"/>
+                <nav-bar class="hidden 2xl:flex gap-5"/>
             </div>
         </div>
     </div>

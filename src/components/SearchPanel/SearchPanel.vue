@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white flex flex-col px-2.5 md:px-[30px] lg:px-[95px]">
+  <div class="bg-white flex flex-col px-2.5 md:px-[30px] 2xl:px-[95px]">
     <!-- Первая строка: заголовок, инпут и кнопки -->
     <div class="py-5 flex items-center justify-between">
       <div class="flex gap-10 items-center">
