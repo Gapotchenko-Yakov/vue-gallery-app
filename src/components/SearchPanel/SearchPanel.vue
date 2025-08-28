@@ -20,7 +20,6 @@
 
       <div class="flex gap-2.5 items-baseline">
         <app-button
-          variant="text"
           @click="handleClearFilter"
           class="text-primary-active font-body text-sm leading-none font-medium cursor-pointer"
         >
@@ -28,7 +27,6 @@
       </app-button>
 
         <app-button
-          variant="text"
           @click="toggleFilters"
           class="flex gap-1 text-gray-500 font-body text-sm leading-none font-medium cursor-pointer"
         >

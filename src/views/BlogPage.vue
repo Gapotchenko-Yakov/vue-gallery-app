@@ -20,6 +20,7 @@
             v-for="card in filteredAndSearchedGalleryData"
             :key="card.id"
             :data="card"
+            @add-comment="addComment"
           />
         </div>
       </div>
@@ -52,13 +53,18 @@ import { SearchPanel } from '@/components';
 import { GalleryCard } from '@/components'
 import { galleryData } from '@/const/posts';
 import { tags } from '@/const/posts';
+import { users } from '@/const/users';
 import type { Post, Tag } from '@/types/post';
+import type { UserData } from '@/types/user';
 import { computed, ref } from 'vue';
 
 // TODO: можно использовать state менеджер чтобы избежать property drill
 // а если связать стейт менеджер с localStorage, то и данные после завершения работы приложения будут сохраняться
 const selectedTags = ref(new Set<Tag>());
 const searchValue = ref('');
+
+const gallery = ref([...galleryData]); 
+const currentUserID = '1';
 
 
 const filteredGalleryData = computed<Post[]>(() => {
@@ -102,6 +108,23 @@ function handleSearchClear() {
 function handleFilterClear() {
   selectedTags.value = new Set<Tag>();
 }
+
+
+function addComment({ postId, comment: commentText }: { postId: string; comment: string }) {
+  const post = gallery.value.find(p => p.id === postId);
+  if (!post) return;
+
+  const user = users.find(user => user.id === currentUserID)
+  
+  post.comments.push({
+    id: crypto.randomUUID(),
+    author: user || {} as UserData,
+    text: commentText,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString()
+  });
+}
+
 
 </script>
 

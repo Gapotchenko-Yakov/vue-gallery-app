@@ -50,13 +50,9 @@
                 <h4 class="font-inter ">Комментариев</h4>
                 <span>{{ post.comments.length }}</span>
             </div>
-            <div class="p-[15px] flex gap-2.5 rounded-input border-gray-200 border-[1px]">
-                <text-input
-                    modelValue="some"
-                    placeholder="Введите комментарий"
-                    class="font-inter font-medium text-gray-400"
-                />
-            </div>
+            <comment-form 
+                @submit="addComment"
+            />
             <div
                 v-for="comment in post.comments"
                 :key="comment.id"
@@ -86,7 +82,8 @@
 <script setup lang="ts">
 import { useMetaCaptions } from '@/composables/useMetaCaptions';
 import type { Post } from '@/types/post';
-import {  ref, watch } from 'vue';
+import { ref, watch } from 'vue';
+import { CommentForm } from '..';
 
 interface PostModalProps {
     isOpen: boolean;
@@ -104,11 +101,16 @@ watch(localValue, (val) => emit('update:isOpen', val))
 watch(() => isOpen, (val) => (localValue.value = val))
 
 const emit = defineEmits<{
-  (e: 'update:isOpen', value: boolean): void
-}>()
+  (e: 'update:isOpen', value: boolean): void;
+  (e: 'add-comment', text: string): void;
+}>();
 
 const cancel = () => {
   emit('update:isOpen', false)
+}
+
+const addComment = (text: string) => {
+    emit('add-comment', text)
 }
 
 const { metaCaptions } = useMetaCaptions(post);

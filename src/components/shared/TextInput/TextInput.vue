@@ -2,14 +2,15 @@
   <div 
     class="rounded-input flex items-center"
     :class="{ 'ring-1 ring-primary': isFocused }"
-    @focusin="isFocused = true"
-    @focusout="isFocused = false"
+    @focusin="onFocus"
+    @focusout="onBlur"
   >
     <slot name="left-icon" />
     <input 
       :value="modelValue" 
       :placeholder="placeholder" 
-      :disabled="disabled" 
+      :disabled="disabled"
+      :maxlength="maxLength"
       @input="handleChange"
       class="flex flex-1 outline-none"
     />
@@ -32,14 +33,17 @@ interface InputProps  {
   placeholder?: string;
   disabled?: boolean;
   showClear?: boolean;
+  maxLength?: number;
 }
 
 const {
     modelValue,
     placeholder,
-    showClear
+    disabled,
+    showClear,
+    maxLength,
 } = defineProps<InputProps>();
-const emit = defineEmits(['update:modelValue', 'clear']);
+const emit = defineEmits(['update:modelValue', 'clear', 'focus', 'blur']);
 
 const isFocused = ref(false);
 
@@ -51,4 +55,14 @@ const clearInput = () => {
   emit('update:modelValue', '');
   emit('clear');
 };
+
+const onFocus = () => {
+  isFocused.value = true
+  emit('focus')
+}
+
+const onBlur = () => {
+  isFocused.value = false
+  emit('blur')
+}
 </script>

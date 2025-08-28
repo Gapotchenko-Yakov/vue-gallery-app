@@ -3,7 +3,7 @@
     :disabled="disabled"
     @click="handleClick"
     :type="type"
-    class="rounded-button"
+    class="rounded-button cursor-pointer"
   >
     <slot />
   </button>
@@ -15,7 +15,7 @@ import {
 } from 'vue';
 
 interface ButtonProps {
-  variant: 'text' | 'contained' | 'outlined';
+  variant?: 'text' | 'contained' | 'outlined';
   disabled?: boolean;
   type?: 'button' | 'submit' | 'reset';
   borderRadius?: number;
@@ -23,11 +23,16 @@ interface ButtonProps {
 
 const {
     disabled,
-    type = 'button',
-} = defineProps<ButtonProps>();
+    type,
+} = withDefaults(defineProps<ButtonProps>(),{
+  type: 'button',
+  borderRadius: 0
+});
+
+const emit = defineEmits(['click'])
 
 const handleClick = (e: MouseEvent) => {
-    console.log("🚀 ~ handleClick ~ e.target:", e.target)
+  emit('click', e);
 }
 </script>
 

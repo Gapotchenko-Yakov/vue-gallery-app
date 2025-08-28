@@ -2,6 +2,7 @@
   <post-modal
     v-model:isOpen="modalOpen"
     :post="data"
+    @add-comment="addComment"
   />
   <div 
     class="flex flex-col gap-2.5 cursor-pointer"
@@ -43,6 +44,15 @@ interface GalleryCardProps {
 }
 
 const { data } = defineProps<GalleryCardProps>();
+
+const emit = defineEmits<{
+  (e: 'add-comment', value: { postId: string; comment: string }): void;
+}>();
+
+const addComment = (text: string) => {
+  emit('add-comment', {postId: data.id, comment: text})
+}
+
 
 const modalOpen = ref(false);
 
