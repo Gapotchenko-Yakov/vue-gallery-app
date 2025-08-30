@@ -4,8 +4,8 @@
   >
     <div class="flex flex-col gap-[15px] p-[15px]">
         <div class="flex flex-col gap-2.5">
-        <div class="flex justify-between">
-            <h3 class="font-inter font-semibold text-2xl leading-none">{{ props.post.title }}</h3>
+        <div class="flex justify-between items-baseline">
+            <h3 class="font-inter font-semibold text-[20px] md:text-2xl leading-none tracking-[-0.01em]">{{ props.post.title }}</h3>
             <button
                 type="button"
                 @click="cancel"

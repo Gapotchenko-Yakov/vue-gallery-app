@@ -5,7 +5,7 @@
       class="fixed inset-0 z-50 bg-overlay flex flex-col items-center justify-center"
       @click.self="close"
     >
-      <div class="bg-white rounded-modal shadow-sm p-[15px] max-w-[630px] w-full max-h-[90vh] overflow-y-auto">
+      <div class="bg-white rounded-modal shadow-sm max-w-[350px] md:max-w-[630px] w-full max-h-[90dvh] overflow-y-auto">
           <slot />
       </div>
     </div>
