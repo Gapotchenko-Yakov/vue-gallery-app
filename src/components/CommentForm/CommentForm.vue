@@ -3,7 +3,7 @@ import { ref, computed } from "vue"
 
 const isActive = ref(false)
 const text = ref("")
-const maxLength = 5
+const maxLength = 250
 
 const charsCount = computed(() => text.value.length)
 const textAreaValid = computed(() => charsCount.value <= maxLength)
